@@ -16,6 +16,7 @@ class FileHelper {
 	 * @return string A path terminated by exactly one occurrence of the platform specific directory separator
 	 */
 	public static function normalizePath(string $pathFragment): string {
+        $pathFragment = preg_replace('~^(.*)/+$~U',"$1", $pathFragment);
 		if(str_ends_with($pathFragment, DIRECTORY_SEPARATOR) === false) {
 			$pathFragment .= DIRECTORY_SEPARATOR;
 		}
