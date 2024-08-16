@@ -23,3 +23,5 @@ upload it to the Appstore.
 
 - Official community chat: https://cloud.nextcloud.com/call/xs25tz5y
 - Official community forum: https://help.nextcloud.com/c/dev/11
+- Run development image: 
+```docker run --rm -p 8080:80 -e SERVER_BRANCH=stable29 -v ./:/var/www/html/apps-extra/bookshelf ghcr.io/juliushaertl/nextcloud-dev-php81:latest```
