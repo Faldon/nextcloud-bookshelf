@@ -1,17 +1,17 @@
 {
-	"name": "nextcloud/app_template",
-	"description": "An example description",
+	"name": "nextcloud/bookshelf",
+	"description": "If you have a lot of eBooks, in various formats, keep them neat and organized in this bookshelf-like application.",
 	"license": "AGPL-3.0-or-later",
 	"authors": [
 		{
-			"name": "example",
-			"email": "example@example.com",
-			"homepage": "https://example.com"
+			"name": "Thomas Pulzer",
+			"email": "t.pulzer@thesecretgamer.de",
+			"homepage": ""
 		}
 	],
 	"autoload": {
 		"psr-4": {
-			"OCA\\AppTemplate\\": "lib/"
+			"OCA\\Bookshelf\\": "lib/"
 		}
 	},
 	"scripts": {

@@ -1,4 +1,4 @@
-# App Template
+# Bookshelf
 
 A template to get started with Nextcloud app development.
 

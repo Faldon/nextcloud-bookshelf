@@ -1,24 +1,25 @@
 <?xml version="1.0"?>
 <info xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
 	  xsi:noNamespaceSchemaLocation="https://apps.nextcloud.com/schema/apps/info.xsd">
-	<id>app_template</id>
-	<name>App Template</name>
-	<summary>An example summary</summary>
-	<description>An example description</description>
+	<id>bookshelf</id>
+	<name>Bookshelf</name>
+	<summary>Organize and display your eBooks like in a bookshelf</summary>
+	<description>If you have a lot of eBooks, in various formats, keep them neat and organized in this bookshelf-like application.</description>
 	<version>1.0.0</version>
 	<licence>agpl</licence>
-	<author mail="example@example.com" homepage="https://example.com">Example</author>
-	<namespace>AppTemplate</namespace>
-	<category>customization</category>
-	<bugs>https://example.com/bugs</bugs>
+	<author mail="t.pulzer@thesecretgamer.de" homepage="">Thomas Pulzer</author>
+	<namespace>Bookshelf</namespace>
+	<category>multimedia</category>
+	<category>organization</category>
+	<bugs>https://github.com/Faldon/nextcloud-bookshelf/issues</bugs>
 	<dependencies>
-		<nextcloud min-version="29" max-version="30"/>
+		<nextcloud min-version="29" max-version="29"/>
 	</dependencies>
 	<navigations>
 		<navigation>
-			<id>app_template</id>
-			<name>App Template</name>
-			<route>app_template.page.index</route>
+			<id>bookshelf</id>
+			<name>Bookshelf</name>
+			<route>bookshelf.page.index</route>
 			<icon>app.svg</icon>
 			<type>link</type>
 		</navigation>
