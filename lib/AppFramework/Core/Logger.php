@@ -29,7 +29,7 @@ class Logger {
 	 */
 	public function log(string $msg, ?string $level = null): void {
 		$context = ['app' => $this->appName];
-		match($level) {
+		match ($level) {
 			LogLevel::DEBUG => $this->logger->debug($msg, $context),
 			LogLevel::INFO, LogLevel::NOTICE => $this->logger->info($msg, $context),
 			LogLevel::WARNING, LogLevel::ALERT => $this->logger->warning($msg, $context),
