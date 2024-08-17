@@ -19,6 +19,18 @@ class FileHelperTest extends TestCase {
 		);
 	}
 
+    public function testPrependSeparatorToPath(): void {
+        $normalizedPath = FileHelper::fragmentPath($this->generateTestPath(128));
+        $this->assertTrue(
+            str_starts_with($normalizedPath, DIRECTORY_SEPARATOR),
+            'path starts with the platform specific directory separator'
+        );
+        $this->assertFalse(
+            str_starts_with(substr($normalizedPath, 1), DIRECTORY_SEPARATOR),
+            'path starts with exactly one occurrence of the platform specific directory separator'
+        );
+    }
+
 	private function generateTestPath(int $pathLength): string {
 		$characters = 'abcdefghijklmnopqrstuvwxyz'.DIRECTORY_SEPARATOR;
 		$capacity = strlen($characters);

@@ -11,7 +11,7 @@ namespace OCA\Bookshelf\Helper;
 
 class FileHelper {
 	/**
-	 * Terminate any given path fragment with the platform directory separator
+	 * Terminate any given path fragment with the platform specific directory separator
 	 * @param  string  $pathFragment The path to normalize
 	 * @return string A path terminated by exactly one occurrence of the platform specific directory separator
 	 */
@@ -24,11 +24,12 @@ class FileHelper {
 	}
 
 	/**
-	 * Prepend any given path with the platform directory separator
+	 * Prepend any given path with the platform specific directory separator
 	 * @param  string  $path The path to fragment
 	 * @return string A path leading with exactly one occurrence of the platform specific directory separator
 	 */
 	public static function fragmentPath(string $path): string {
+        $path = preg_replace('~^/+(.*)$~','$1', $path);
 		if(str_starts_with($path, DIRECTORY_SEPARATOR) === false) {
 			$path = DIRECTORY_SEPARATOR . $path;
 		}
