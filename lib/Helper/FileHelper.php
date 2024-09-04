@@ -53,4 +53,6 @@ class FileHelper {
 		}
 		throw new \InvalidArgumentException('Path points to a file while folder expected');
 	}
+
+
 }

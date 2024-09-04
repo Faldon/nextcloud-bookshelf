@@ -7,11 +7,11 @@ declare(strict_types=1);
  * SPDX-FileCopyrightText: 2024 Thomas Pulzer <t.pulzer@thesecretgamer.de>
  * SPDX-License-Identifier: AGPL-3.0-or-later
  */
-
 namespace OCA\Bookshelf\Utility;
 
 use OCA\Bookshelf\AppFramework\Core\Logger;
 use OCA\Bookshelf\Helper\FileHelper;
+use OCP\Files\Folder;
 use OCP\Files\IRootFolder;
 use OCP\Files\NotFoundException;
 use OCP\Files\NotPermittedException;
@@ -62,5 +62,22 @@ class Settings {
 	 */
 	public function getBookPath(string $userId): string {
 		return $this->manager->getUserValue($userId, $this->appName, 'path') ?: DIRECTORY_SEPARATOR;
+	}
+
+	public function getFolder(string $userId) : ?Folder {
+		try {
+			$userHome = $this->root->getUserFolder($userId);
+			$path = $this->getBookPath($userId);
+			return FileHelper::getFolderFromPath($userHome, $path);
+		} catch (NotPermittedException|NotFoundException $e) {
+			$this->logger->log($e->getMessage(), LogLevel::ERROR);
+			return null;
+		}
+	}
+
+	public function isPathInLibrary(string $filePath, string $userId) : bool {
+		$filePath = FileHelper::normalizePath($filePath);
+		$musicPath = FileHelper::normalizePath($this->getFolder($userId)?->getPath() ?? '');
+		return !empty($musicPath) && str_starts_with($filePath, $musicPath);
 	}
 }
